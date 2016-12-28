@@ -1,0 +1,23 @@
+{
+  "name": "PolymerContactForm",
+  "authors": [
+    "Ranjan <ranjancse@gmail.com>"
+  ],
+  "description": "Contact Form App",
+  "main": "index.html",
+  "keywords": [
+    "Contacts"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  }
+}
