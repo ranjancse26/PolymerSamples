@@ -65,14 +65,46 @@
   Polymer({
     is: 'contact-form',
     properties: {
-        name: String,
-        email: String,
-        mobile: String,
-        subject: String,
-        message: String
+        name: {
+          type: String,
+          notify: true,          
+          observer: "_onNameChanged"
+        },
+        email: {
+          type: String,
+          notify: true,         
+          observer: "_onEmailChanged"
+        },
+        mobile:{
+          type: String,
+          notify: true,         
+          observer: "_onMobileChanged"
+        },
+        subject: {
+          type: String,
+          notify: true,         
+          observer: "_onSubjectChanged"
+        }, 
+        message: {
+          type: String,
+          notify: true,         
+          observer: "_onMessageChanged"
+        } 
     },
-    ready: function(){
-      $('#message').val('');
+    _onNameChanged: function(value){
+      $('#name').val(value);
+    },
+    _onEmailChanged: function(value){
+      $('#email').val(value);
+    },
+    _onMobileChanged: function(value){
+      $('#mobile').val(value);
+    },
+     _onSubjectChanged: function(value){
+      $('#subject').val(value);
+    },
+    _onMessageChanged: function(value){
+      $('#message').val(value);
     },
     attached: function() {
           $('#characterLeft').text('140 characters left');
