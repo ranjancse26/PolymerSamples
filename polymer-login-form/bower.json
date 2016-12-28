@@ -1,0 +1,23 @@
+{
+  "name": "polymerloginform",
+  "authors": [
+    "Ranjan <ranjancse@gmail.com>"
+  ],
+  "description": "Login Form App",
+  "main": "index.html",
+  "keywords": [
+    "Login"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  }
+}
