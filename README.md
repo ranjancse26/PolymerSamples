@@ -8,7 +8,7 @@ Polymer.js based web component sample projects
 
 npm install -g bower
 
-2) Install Polymer CLIsa
+2) Install Polymer CLI
 
 npm install -g polymer-cli
 
