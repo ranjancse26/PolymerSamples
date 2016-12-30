@@ -1,0 +1,125 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id='user-rating'>
+
+  <style> 
+    .btn-grey{
+      background-color:#D8D8D8;
+      color:#FFF;
+    }
+    .rating-block{
+      background-color:#FAFAFA;
+      border:1px solid #EFEFEF;
+      padding:15px 15px 20px 15px;
+      border-radius:3px;
+      width: 20%;
+    }
+    .bold{
+      font-weight:700;
+    }
+    .padding-bottom-7{
+      padding-bottom:7px;
+    }
+  </style>
+
+  <template>
+      <div class="rating-block">
+          <h4>Average user rating</h4>
+       
+          <div id="total" name="total" 
+          hidden$="{{hide}}">{{total}}</div>
+
+          <h2 id="rating" class="bold padding-bottom-7">
+          {{rating}}<small>/ {{total}}</small></h2>
+          
+          <button on-click="onStarClick" id="star1" type="button"  class="btn btn-default btn-grey btn-sm"
+           aria-label="Left Align">
+            <span class="glyphicon glyphicon-star"
+             aria-hidden="true"></span>
+          </button>
+         
+          <button on-click="onStarClick" id="star2" type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+            <span class="glyphicon glyphicon-star"
+             aria-hidden="true"></span>
+          </button>
+         
+          <button on-click="onStarClick" id="star3" type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+            <span class="glyphicon glyphicon-star"
+             aria-hidden="true"></span>
+          </button>
+         
+          <button on-click="onStarClick" id="star4" type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+            <span class="glyphicon glyphicon-star"
+             aria-hidden="true"></span>
+          </button>
+         
+          <button on-click="onStarClick" id="star5" type="button" class="btn btn-default btn-grey btn-sm" 
+          aria-label="Left Align">
+            <span class="glyphicon glyphicon-star" 
+            aria-hidden="true"></span>
+          </button>
+        </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'user-rating',
+    properties: {
+        rating: {
+          type: Number,
+          notify: true,          
+          observer: "_onRatingChanged"
+        },
+        total: {
+          type: Number,
+          notify: true,          
+          observer: "_onTotalChanged"
+        },
+        hide: {
+           type: Boolean,
+           value: true
+        }
+    },
+    _onRatingChanged: function(value){
+      this.$.rating.innerHTML = value;
+    },
+    _onTotalChanged: function(value){
+      this.$.total.innerHTML = value;
+    },
+    onStarClick : function (e) {
+       var target = e.currentTarget;
+       var rating = this.$.rating.innerHTML;
+       var total = this.$.total.innerHTML;
+       var updatedRating = 0;
+
+       if(target.classList.contains('btn-grey'))
+       {
+          var updatedRating = parseInt(rating) + 1;
+          target.classList.remove("btn-grey")
+          target.classList.add("btn-warning");
+       }else
+       {
+          var updatedRating = parseInt(rating) - 1;
+          target.classList.remove("btn-warning")
+          target.classList.add("btn-grey");
+       }
+       this.$.rating.innerHTML = 
+            updatedRating + '<small>/' + 
+            this.$.total.innerHTML + '</small>';
+    },
+    attached: function() {
+        var rating = parseInt(this.$.rating.innerHTML);
+      
+        for(var i=1; i<=rating; i++){
+           this.$['star'+i].classList.remove("btn-warning");
+           this.$['star'+i].classList.add("btn-grey");
+        }
+        for(var i=1; i<=rating; i++){
+           this.$['star'+i].classList.remove("btn-grey");
+           this.$['star'+i].classList.add("btn-warning");
+        }
+    }
+  });
+</script>
