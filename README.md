@@ -27,6 +27,10 @@ polymer serve --port 8081 (You can specify any port)
 ![text](https://github.com/ranjancse26/PolymerSamples/blob/master/polymer-contact-form/PolymerContactForm.png)
 
 
-Polymer Login
+User Login Component
 
 ![text](https://github.com/ranjancse26/PolymerSamples/blob/master/polymer-login-form/PolymerLoginDemo.png)
+
+User Rating Component
+
+![text](https://github.com/ranjancse26/PolymerSamples/blob/master/polymer-user-rating/UserRatingDemo.png)
